@@ -35,7 +35,7 @@ def create_app(config_class=Config) -> Flask:
     os.makedirs(os.path.join(app.root_path, "instance"), exist_ok=True)
     os.makedirs(app.config.get("UPLOAD_FOLDER", "uploads"), exist_ok=True)
 
-    # Initialize database
+    # Initialize components database
     init_db(app)
 
     # Register blueprints
