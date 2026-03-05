@@ -31,7 +31,7 @@ def create_app(config_class=Config) -> Flask:
     app = Flask(__name__)
     app.config.from_object(config_class)
 
-    # Ensure instance and upload directories exist
+    # v1.0.1 - Ensure instance and upload directories exist
     os.makedirs(os.path.join(app.root_path, "instance"), exist_ok=True)
     os.makedirs(app.config.get("UPLOAD_FOLDER", "uploads"), exist_ok=True)
 
