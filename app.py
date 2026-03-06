@@ -77,3 +77,5 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8005))
     logger.info("Starting ResumeAI on http://0.0.0.0:%d", port)
     app.run(host="0.0.0.0", port=port, debug=True)
+
+# Module documentation updated
