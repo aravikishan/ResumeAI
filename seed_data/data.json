@@ -1,0 +1,108 @@
+{
+  "sample_resumes": [
+    {
+      "name": "Alice Chen",
+      "text": "Alice Chen\nSenior Data Scientist\n\nContact\nEmail: alice.chen@email.com\nPhone: (415) 555-8901\n\nSummary\nData scientist with 6 years of experience in machine learning and data analytics. Proficient in Python, TensorFlow, and cloud platforms. Led cross-functional teams to deliver data-driven products.\n\nExperience\n6 years of experience in data science and ML.\nLed a team of analysts. Built predictive models. Deployed ML pipelines.\n\nSkills\nPython, R, SQL, TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy, AWS, Docker, Tableau, Spark, PostgreSQL\n\nEducation\nMaster of Science in Statistics\nStanford University | 2017\n\nCertifications\nAWS Machine Learning Specialty\n\nSoft Skills\nLeadership, Communication, Problem-solving"
+    },
+    {
+      "name": "Marcus Johnson",
+      "text": "Marcus Johnson\nDevOps Engineer\n\nContact\nEmail: marcus.j@email.com\nPhone: 555-234-5678\n\nSummary\nDevOps engineer with 4 years of experience building CI/CD pipelines and managing cloud infrastructure.\n\nExperience\n4 years of experience in DevOps and SRE.\nManaged production infrastructure. Automated deployment processes.\n\nSkills\nPython, Bash, Docker, Kubernetes, AWS, Azure, Terraform, Jenkins, GitHub Actions, Linux, Ansible, PostgreSQL, Redis, Nginx\n\nEducation\nBachelor of Science in Computer Engineering\nGeorgia Tech | 2019\n\nCertifications\nCertified Kubernetes Administrator\n\nSoft Skills\nAgile, Teamwork, Problem-solving"
+    },
+    {
+      "name": "Sarah Williams",
+      "text": "Sarah Williams\nFull Stack Developer\n\nContact\nEmail: sarah.w@email.com\nPhone: (212) 555-3456\n\nSummary\nFull stack developer with 3 years of experience building modern web applications.\n\nExperience\n3 years of experience in web development.\nBuilt responsive UIs. Developed REST APIs.\n\nSkills\nJavaScript, TypeScript, React, Node.js, Python, HTML, CSS, PostgreSQL, MongoDB, Docker, AWS\n\nEducation\nBachelor of Arts in Computer Science\nNYU | 2020\n\nSoft Skills\nCollaboration, Communication, Creativity"
+    }
+  ],
+  "job_postings": [
+    {
+      "id": 1,
+      "title": "Senior Backend Engineer",
+      "company": "TechCorp Inc.",
+      "description": "Design and build scalable APIs and microservices.",
+      "required_skills": [
+        "Python",
+        "Flask",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "Redis",
+        "CI/CD",
+        "REST API",
+        "Linux",
+        "Git"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Full Stack Developer",
+      "company": "Startup Labs",
+      "description": "Build UIs and backends for SaaS products.",
+      "required_skills": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "HTML",
+        "CSS",
+        "Git"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Data Engineer",
+      "company": "DataDriven Analytics",
+      "description": "Design and maintain large-scale data pipelines.",
+      "required_skills": [
+        "Python",
+        "SQL",
+        "Spark",
+        "Airflow",
+        "AWS",
+        "Docker",
+        "Kafka",
+        "PostgreSQL",
+        "Pandas",
+        "Linux"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Machine Learning Engineer",
+      "company": "AI Solutions Corp",
+      "description": "Build and deploy ML models at scale.",
+      "required_skills": [
+        "Python",
+        "TensorFlow",
+        "PyTorch",
+        "Scikit-learn",
+        "Docker",
+        "AWS",
+        "SQL",
+        "Pandas",
+        "NumPy",
+        "Kubernetes"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "DevOps Engineer",
+      "company": "CloudScale Systems",
+      "description": "Manage cloud infrastructure and CI/CD pipelines.",
+      "required_skills": [
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "Terraform",
+        "Linux",
+        "Jenkins",
+        "GitHub Actions",
+        "Python",
+        "Bash",
+        "Nginx"
+      ]
+    }
+  ]
+}
