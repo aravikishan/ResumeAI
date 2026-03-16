@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ResumeAI{% endblock %}</title>
+    <meta name="description" content="AI-powered resume parser with skill extraction, ATS scoring, and job matching.">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128196;</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="nav-brand">
+                <span class="brand-icon">&#128196;</span>
+                <span class="brand-text">ResumeAI</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/" class="nav-link">Analyze</a></li>
+                <li><a href="/jobs" class="nav-link">Jobs</a></li>
+                <li><a href="/history" class="nav-link">History</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2024 ResumeAI &mdash; AI-powered resume parsing and job matching</p>
+            <p class="footer-links">
+                <a href="/about">About</a> &middot;
+                <a href="/api/health">API Status</a>
+            </p>
+        </div>
+    </footer>
+
+    <div id="loadingOverlay" class="loading-overlay" style="display:none;">
+        <div class="spinner"></div>
+        <p class="loading-text">Analyzing resume...</p>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

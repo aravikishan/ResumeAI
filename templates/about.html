@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block title %}ResumeAI - About{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>About ResumeAI</h1>
+    <p>Understanding how the resume analysis engine works.</p>
+</section>
+
+<div class="about-grid">
+    <div class="card about-card">
+        <h2>&#128196; What is ResumeAI?</h2>
+        <p>
+            ResumeAI is an AI-powered resume parser that uses rule-based analysis
+            to extract structured information from plain-text resumes. It identifies
+            skills, calculates ATS compatibility scores, detects experience levels,
+            and matches resumes against job postings -- all without external API calls.
+        </p>
+    </div>
+
+    <div class="card about-card">
+        <h2>&#128736; How It Works</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <h4>1. Section Extraction</h4>
+                <p>Regex-based detection of resume sections: Contact, Summary,
+                Experience, Education, Skills, Certifications, and more.</p>
+            </div>
+            <div class="feature-item">
+                <h4>2. Skill Extraction</h4>
+                <p>Keyword matching against a database of 150+ skills across 6
+                categories: Programming, Frameworks, Databases, Cloud, Data,
+                and Soft Skills.</p>
+            </div>
+            <div class="feature-item">
+                <h4>3. ATS Scoring</h4>
+                <p>Compatibility score (0-100) based on contact completeness,
+                skill count, skill diversity, education, experience, and
+                formatting quality including action verb usage.</p>
+            </div>
+            <div class="feature-item">
+                <h4>4. Job Matching</h4>
+                <p>Compares extracted skills against job requirements to calculate
+                a match percentage, identify gaps, and provide recommendations.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card about-card">
+        <h2>&#127919; ATS Scoring Breakdown</h2>
+        <table class="about-table">
+            <thead>
+                <tr>
+                    <th>Criterion</th>
+                    <th>Max Points</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Email Present</td>
+                    <td>10</td>
+                    <td>Professional email address detected</td>
+                </tr>
+                <tr>
+                    <td>Phone Present</td>
+                    <td>10</td>
+                    <td>Phone number detected</td>
+                </tr>
+                <tr>
+                    <td>Skills Listed</td>
+                    <td>20</td>
+                    <td>Number of recognized technical skills</td>
+                </tr>
+                <tr>
+                    <td>Skill Diversity</td>
+                    <td>15</td>
+                    <td>Skills across multiple categories</td>
+                </tr>
+                <tr>
+                    <td>Education</td>
+                    <td>15</td>
+                    <td>Degree level detected (higher = more points)</td>
+                </tr>
+                <tr>
+                    <td>Experience</td>
+                    <td>15</td>
+                    <td>Years of experience mentioned</td>
+                </tr>
+                <tr>
+                    <td>Formatting</td>
+                    <td>15</td>
+                    <td>Name, sections, action verbs, resume length</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>100</strong></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="card about-card">
+        <h2>&#128187; Technology Stack</h2>
+        <div class="tech-stack-grid">
+            <div class="tech-item">
+                <strong>Backend</strong>
+                <span>Flask 3.0 (Python)</span>
+            </div>
+            <div class="tech-item">
+                <strong>Database</strong>
+                <span>SQLite + SQLAlchemy</span>
+            </div>
+            <div class="tech-item">
+                <strong>Validation</strong>
+                <span>Pydantic 2.5</span>
+            </div>
+            <div class="tech-item">
+                <strong>Testing</strong>
+                <span>pytest + coverage</span>
+            </div>
+            <div class="tech-item">
+                <strong>Container</strong>
+                <span>Docker + Compose</span>
+            </div>
+            <div class="tech-item">
+                <strong>CI/CD</strong>
+                <span>GitHub Actions</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card about-card">
+        <h2>&#128640; API Endpoints</h2>
+        <table class="about-table">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Endpoint</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>GET</td><td>/api/health</td><td>Health check</td></tr>
+                <tr><td>POST</td><td>/api/parse</td><td>Parse resume text</td></tr>
+                <tr><td>POST</td><td>/api/ats-score</td><td>Get ATS score only</td></tr>
+                <tr><td>POST</td><td>/api/match</td><td>Match against a job</td></tr>
+                <tr><td>POST</td><td>/api/match-all</td><td>Match against all jobs</td></tr>
+                <tr><td>GET</td><td>/api/resumes</td><td>List parsed resumes</td></tr>
+                <tr><td>GET</td><td>/api/resumes/:id</td><td>Get specific resume</td></tr>
+                <tr><td>GET</td><td>/api/jobs</td><td>List job postings</td></tr>
+                <tr><td>GET</td><td>/api/sample</td><td>Get sample resume</td></tr>
+                <tr><td>GET</td><td>/api/skills/categories</td><td>Skill categories</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

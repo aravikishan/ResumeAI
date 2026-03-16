@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}ResumeAI - Analysis Results{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Analysis Results</h1>
+    <p>Detailed breakdown of your resume analysis.</p>
+</section>
+
+<div id="resultsContainer" class="results-grid">
+    <!-- Contact Info Card -->
+    <div class="card result-card">
+        <h2>&#128100; Contact Information</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <span class="contact-label">Name</span>
+                <span id="resultName" class="contact-value">--</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <span id="resultEmail" class="contact-value">--</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Phone</span>
+                <span id="resultPhone" class="contact-value">--</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Experience Level</span>
+                <span id="resultLevel" class="contact-value level-badge">--</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ATS Score Card -->
+    <div class="card result-card">
+        <h2>&#127919; ATS Compatibility Score</h2>
+        <div class="ats-container">
+            <div class="ats-score-circle" id="atsScoreCircle">
+                <span id="atsScoreValue">0</span>
+                <small>/100</small>
+            </div>
+            <div class="ats-breakdown" id="atsBreakdown"></div>
+        </div>
+    </div>
+
+    <!-- Skills Card -->
+    <div class="card result-card full-width">
+        <h2>&#128736; Extracted Skills</h2>
+        <div id="skillsContainer" class="skills-container"></div>
+    </div>
+
+    <!-- Experience & Education Card -->
+    <div class="card result-card">
+        <h2>&#127891; Experience &amp; Education</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="info-label">Years of Experience</span>
+                <span id="resultExperience" class="info-value">--</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Highest Education</span>
+                <span id="resultEducation" class="info-value">--</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sections Detected Card -->
+    <div class="card result-card">
+        <h2>&#128209; Sections Detected</h2>
+        <div id="sectionsContainer" class="sections-list"></div>
+    </div>
+
+    <!-- Suggestions Card -->
+    <div class="card result-card full-width">
+        <h2>&#128161; Improvement Suggestions</h2>
+        <div id="suggestionsContainer" class="suggestions-list"></div>
+    </div>
+</div>
+
+<div class="button-group center-buttons" style="margin:2rem 0;">
+    <a href="/" class="btn btn-secondary">&#8592; Analyze Another</a>
+    <a href="/jobs" class="btn btn-primary">&#128188; Match Against Jobs</a>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}ResumeAI - Job Matching{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Job Matching</h1>
+    <p>Browse available positions and match your resume against them to see your compatibility.</p>
+</section>
+
+<div class="jobs-grid">
+    {% for job in jobs %}
+    <div class="card job-card">
+        <div class="job-header">
+            <h3>{{ job.title }}</h3>
+            <span class="job-company">{{ job.company }}</span>
+        </div>
+        <p class="job-description">{{ job.description }}</p>
+        <div class="job-skills">
+            <h4>Required Skills</h4>
+            <div class="skill-tags">
+                {% for skill in job.required_skills %}
+                <span class="skill-badge skill-required">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <button class="btn btn-primary btn-sm"
+                onclick="matchJob({{ job.id }})">&#128269; Match My Resume</button>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Match Modal -->
+<div id="matchModal" class="modal" style="display:none;">
+    <div class="modal-content card">
+        <div class="modal-header">
+            <h2>Match Your Resume</h2>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <textarea id="matchResumeText" class="resume-textarea"
+                  placeholder="Paste your resume text here to match against the selected job..."></textarea>
+        <div class="button-group">
+            <button class="btn btn-secondary" onclick="loadSampleForMatch()">&#128203; Load Sample</button>
+            <button class="btn btn-primary" id="matchSubmitBtn"
+                    onclick="submitMatch()">&#128269; Match</button>
+        </div>
+    </div>
+</div>
+
+<!-- Match Result Panel -->
+<div id="matchResultPanel" class="card match-result-panel" style="display:none;">
+    <div class="match-header">
+        <div>
+            <h2 id="matchJobTitle">--</h2>
+            <p id="matchJobCompany" class="text-muted"></p>
+        </div>
+        <div class="match-percentage-circle" id="matchPercentCircle">
+            <span id="matchPercentValue">0</span>
+            <small>%</small>
+        </div>
+    </div>
+
+    <p id="matchRecommendation" class="match-recommendation"></p>
+
+    <div class="match-skills-grid">
+        <div class="match-column">
+            <h3 class="text-success">&#10003; Matched Skills</h3>
+            <div id="matchedSkills" class="skill-tags"></div>
+        </div>
+        <div class="match-column">
+            <h3 class="text-danger">&#10007; Missing Skills</h3>
+            <div id="missingSkills" class="skill-tags"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

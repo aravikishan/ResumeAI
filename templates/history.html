@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}ResumeAI - History{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Analysis History</h1>
+    <p>Previously analyzed resumes and their scores.</p>
+</section>
+
+{% if resumes %}
+<div class="history-stats">
+    <div class="stat-card">
+        <span class="stat-value">{{ resumes|length }}</span>
+        <span class="stat-label">Total Analyses</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-value">{{ "%.0f"|format(resumes|map(attribute='ats_score')|list|sum / resumes|length) if resumes else 0 }}</span>
+        <span class="stat-label">Average ATS Score</span>
+    </div>
+</div>
+
+<div class="history-list">
+    {% for r in resumes %}
+    <div class="card history-card">
+        <div class="history-header">
+            <div class="history-info">
+                <h3>{{ r.name or "Unknown Candidate" }}</h3>
+                <div class="history-details">
+                    <span>{{ r.email or "N/A" }}</span>
+                    <span>{{ r.education or "N/A" }}</span>
+                    <span>{{ r.experience_level or "N/A" }} Level</span>
+                </div>
+            </div>
+            <span class="ats-badge ats-{{ 'high' if r.ats_score >= 70 else ('mid' if r.ats_score >= 40 else 'low') }}">
+                ATS: {{ r.ats_score }}
+            </span>
+        </div>
+        {% if r.skills %}
+        <div class="history-skills">
+            {% for category, skill_list in (r.skills or {}).items() %}
+            {% for skill in skill_list[:3] %}
+            <span class="skill-badge skill-{{ category|lower|replace(' ', '-') }}">{{ skill }}</span>
+            {% endfor %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="history-meta">
+            <small>Analyzed: {{ r.created_at[:10] if r.created_at else "N/A" }}</small>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="card empty-state">
+    <span class="empty-icon">&#128203;</span>
+    <h3>No Analyses Yet</h3>
+    <p>Parse your first resume to see results here.</p>
+    <a href="/" class="btn btn-primary">Analyze Resume</a>
+</div>
+{% endif %}
+{% endblock %}
