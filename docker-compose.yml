@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  resumeai:
+    build: .
+    container_name: resumeai
+    ports:
+      - "8005:8005"
+    environment:
+      - PORT=8005
+      - FLASK_DEBUG=0
+      - SECRET_KEY=change-me-in-production
+    volumes:
+      - app_data:/app/instance
+      - uploads:/app/uploads
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8005/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  app_data:
+  uploads:
